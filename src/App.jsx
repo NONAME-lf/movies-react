@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { toast, ToastContainer } from "react-toastify";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink, Outlet } from "react-router";
+import ThemeSwitcher from "./components/ThemeSwitcher";
 
 function App() {
   return (
@@ -14,8 +15,12 @@ function App() {
             <NavLink to="/" className="me-3">
               Home
             </NavLink>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/about" className="me-3">
+              About
+            </NavLink>
+            <NavLink to="/favorites">Favorites </NavLink>
           </Nav>
+          <ThemeSwitcher />
         </Container>
       </Navbar>
       <Container>

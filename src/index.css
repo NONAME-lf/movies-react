@@ -6,3 +6,23 @@
     aspect-ratio: 237 / 340;
   }
 }
+
+.navbar-nav a.active {
+  color: #232323;
+  text-decoration: none;
+}
+
+body[data-bs-theme="dark"] {
+  /* background-color: #222;
+
+  .card {
+    background-color: #111;
+    color: #fff;
+    border-color: #555;
+  } */
+
+  .navbar-nav a.active {
+    color: #fff;
+    text-decoration: none;
+  }
+}

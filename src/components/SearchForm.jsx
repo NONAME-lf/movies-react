@@ -1,5 +1,4 @@
-import { Button, Col, Row, Form } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
+import { Button, Col, Row, Form, Card } from "react-bootstrap";
 import { useState } from "react";
 import { toast } from "react-toastify";
 

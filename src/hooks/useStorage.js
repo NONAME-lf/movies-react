@@ -1,19 +1,28 @@
 export default function useStorage() {
-  const getItem = (key, defaultValue = null) => {
-    const item = localStorage.getItem(key);
-    if (item) return JSON.parse(item);
+  const getStorageItem = (key, defaultValue = null, type = "local") => {
+    const item = (type === "local" ? localStorage : sessionStorage).getItem(
+      key
+    );
+    if (item) {
+      try {
+        const ret = JSON.parse(item);
+        return ret;
+      } catch (_) {
+        return item;
+      }
+    }
     return defaultValue;
   };
 
-  const setItem = (key, value) => {
-    localStorage.setItem(
+  const setStorageItem = (key, value, type = "local") => {
+    (type === "local" ? localStorage : sessionStorage).setItem(
       key,
       typeof value === "string" ? value : JSON.stringify(value)
     );
   };
 
   return {
-    getItem,
-    setItem,
+    getStorageItem,
+    setStorageItem,
   };
 }
