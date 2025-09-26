@@ -22,9 +22,12 @@ export default function HomePage() {
   const { getStorageItem, setStorageItem } = useStorage();
 
   const searchHandler = (params) => {
+    setPage(1);
+    pageHandler(1);
     setType(params.type);
     setSearch(params.search);
-    searchMovies(params.search, params.type, page);
+    searchMovies(params.search, params.type, 1); // We pass 1 here as page because when we want to search for something, we want to start from the first page
+    // And even though we change page state above, that won't be reflected here immediately
   };
 
   const pageHandler = (newPage) => {
