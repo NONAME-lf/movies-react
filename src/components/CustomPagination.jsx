@@ -5,7 +5,7 @@ export default function CustomPagination({ page, total, onPageChange }) {
     let items = [];
     for (let number = 1; number <= total; number++) {
       // ... pagination logic here (e.g., limit number of displayed pages)
-      items.push(
+      const comp = (
         <Pagination.Item
           key={number}
           active={number === page}
@@ -14,6 +14,18 @@ export default function CustomPagination({ page, total, onPageChange }) {
           {number}
         </Pagination.Item>
       );
+      if (number === 1 || number === total) {
+        items.push(comp);
+        continue;
+      }
+      if (
+        total >= 5 &&
+        (number === page || (number < page + 3 && number > page - 3))
+      ) {
+        items.push(comp);
+      } else if (number === page - 3 || number === page + 3) {
+        items.push(<Pagination.Ellipsis key={number} disabled />);
+      }
     }
     return items;
   };
