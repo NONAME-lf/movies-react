@@ -25,4 +25,8 @@ body[data-bs-theme="dark"] {
     color: #fff;
     text-decoration: none;
   }
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
 }

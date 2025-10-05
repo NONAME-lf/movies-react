@@ -18,6 +18,10 @@ export default function CustomPagination({ page, total, onPageChange }) {
         items.push(comp);
         continue;
       }
+      if (total <= 5) {
+        items.push(comp);
+        continue;
+      }
       if (
         total >= 5 &&
         (number === page || (number < page + 3 && number > page - 3))

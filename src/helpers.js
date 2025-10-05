@@ -3,6 +3,7 @@ export async function delay(ms) {
 }
 
 export function formatDate(date = "") {
+  const f = 'f'
   if (/\d\d\d\d-\d\d-\d\d/.test(date) === false) return "-- --- ----";
   const arDate = date.split("-");
   const arMonth = [

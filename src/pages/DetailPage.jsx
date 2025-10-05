@@ -40,6 +40,19 @@ export default function DetailPage() {
   if (!item) {
     return null;
   }
+  // [REFACTOR] Could be done with a map object too???
+  if (params.type === "movie") {
+    return <h1>{item.title}</h1>;
+  } else if (params.type === "tv") {
+    return <h1>{item["original_name"]}</h1>;
+  } else if (params.type === "person") {
+    return <h1>{item.name}</h1>;
+  }
 
-  return <h1>{item.title}</h1>;
+  // const titleMap = {
+  //   movie: item.title,
+  //   tv: item["original_name"],
+  //   person: item.name,
+  // };
+  // return <h1>{titleMap[params.type]}</h1>;
 }
